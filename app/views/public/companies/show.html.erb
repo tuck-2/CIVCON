@@ -1,0 +1,26 @@
+<h1>企業情報</h1>
+
+<h2><%= @company.name %></h2>
+
+<h2>企業概要</h2>
+<p><%= @company.description %></p>
+
+<table>
+  <tr>
+    <th>会社所在地</th>
+    <td>
+      <%= "〒#{@company.postal_code}" %><br>
+      <%= @company.address %>
+    </td>
+  </tr>
+  <tr>
+    <th>電話番号</th>
+    <td><%= @company.phone_num %></td>
+  </tr>
+  <% if @company.fax_num != nil %>
+    <tr>
+      <th>FAX</th>
+      <td><%= @company.fax_num %></td>
+    </tr>
+  <% end %>
+</table>

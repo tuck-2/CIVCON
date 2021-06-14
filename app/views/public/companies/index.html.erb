@@ -1,0 +1,25 @@
+<h1>メーカー一覧</h1>
+
+<table>
+  <thead>
+    <th>企業名</th>
+    <th>所在地</th>
+    <th>電話番号</th>
+  </thead>
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td>
+          <%= company.name %>
+        </td>
+        <td>
+          <%= "〒#{company.postal_code}" %><br>
+          <%= company.address %>
+        </td>
+        <td>
+          <%= company.phone_num %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
