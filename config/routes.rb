@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   namespace :public do
     resources :companies, only: [:index, :show]
   end
+  #メーカー側のルーティング設定
+  namespace :maker do
+    resources :products
+  end
 
 end
