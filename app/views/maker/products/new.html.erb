@@ -1,0 +1,25 @@
+<h1>製品投稿ページ</h1>
+
+<% if @product.errors.any? %>
+  <% @product.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<%= form_with model: [:maker, @product], local: true do |f| %>
+  <div>
+    <%= f.label :name, "製品名" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :description, "製品概要" %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.label :product_images_images, "製品画像" %>
+    <%= f.attachment_field :product_images_images, multiple: true %>
+  </div>
+  <div>
+    <%= f.submit "登録" %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<h1>製品一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>製品名</th>
+      <th>製品タイプ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, maker_product_path(product.id) %></td>
+        <!--製品タイプモデル作成後修正-->
+        <td><%= product.type_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
