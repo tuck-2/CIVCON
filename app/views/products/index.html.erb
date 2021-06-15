@@ -9,7 +9,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to product.name, maker_product_path(product.id) %></td>
+        <td><%= link_to product.name, product_path(product.id) %></td>
         <!--製品タイプモデル作成後修正-->
         <td><%= product.type_id %></td>
       </tr>

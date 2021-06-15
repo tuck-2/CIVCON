@@ -10,13 +10,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: 'homes#top'
-  #会員側のルーティング設定
-  namespace :public do
-    resources :companies, only: [:index, :show]
-  end
-  #メーカー側のルーティング設定
-  namespace :maker do
-    resources :products
-  end
+  resources :companies, only: [:index, :show]
+  resources :products
 
 end

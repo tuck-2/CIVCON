@@ -1,4 +1,4 @@
-class Maker::ProductsController < ApplicationController
+class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.product_images.new
@@ -11,14 +11,14 @@ class Maker::ProductsController < ApplicationController
     @product.type_id = 0
     if @product.save
       flash[:notice] = "製品の登録が完了しました"
-      redirect_to maker_products_path
+      redirect_to company_path(current_company.id)
     else
       render :new
     end
   end
 
   def index
-    @products = Product.where(company_id: current_company.id)
+    @products = Product.all
   end
 
   def show
