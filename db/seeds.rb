@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+types = ["カルバート類", "管渠・暗渠類", "側溝類", "道路類", "擁壁類", "水路類", "残存型枠類", "河川・港湾類", "周辺事業", "その他"]
+types.each do |type|
+  Type.create(name: type)
+end
