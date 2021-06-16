@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: 'homes#top'
+  get '/about' => 'homes#about'
   resources :companies, only: [:index, :show]
   resources :products
 
