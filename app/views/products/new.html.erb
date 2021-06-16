@@ -11,6 +11,10 @@
     <%= f.text_field :name %>
   </div>
   <div>
+    <%= f.label :type_id, "製品タイプ" %>
+    <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: "選択してください" %>
+  </div>
+  <div>
     <%= f.label :description, "製品概要" %>
     <%= f.text_area :description %>
   </div>

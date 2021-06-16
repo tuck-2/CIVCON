@@ -7,8 +7,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.company_id = current_company.id
-    #製品タイプモデル作成後修正
-    @product.type_id = 0
     if @product.save
       flash[:notice] = "製品の登録が完了しました"
       redirect_to company_path(current_company.id)
