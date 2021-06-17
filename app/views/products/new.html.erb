@@ -23,6 +23,12 @@
     <%= f.attachment_field :product_images_images, multiple: true %>
   </div>
   <div>
+    <%= f.fields_for :sizes do |s| %>
+      <%= s.label :name, "呼び寸法 / 品名" %>
+      <%= s.text_field :name %>
+    <% end %>
+  </div>
+  <div>
     <%= f.submit "登録" %>
   </div>
 <% end %>

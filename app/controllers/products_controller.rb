@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def new
     @product = Product.new
+    @product.sizes.build
     @product.product_images.new
   end
 
@@ -21,6 +22,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @sizes = @product.sizes
   end
 
   def edit
@@ -35,7 +37,17 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:type_id, :name, :description, product_images_images: [])
+    params.require(:product).permit(
+      :type_id,
+      :name,
+      :description,
+      sizes_attributes: [
+        :id,
+        :product_id,
+        :name
+        ],
+      product_images_images: []
+      )
   end
 
 end
