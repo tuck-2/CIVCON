@@ -10,3 +10,6 @@
 <% @sizes.each do |size| %>
   <%= size.name %>
 <% end %>
+<% if user_signed_in? %>
+  <%= link_to "見積依頼を作成", new_product_estimate_path(@product.id) %>
+<% end %>

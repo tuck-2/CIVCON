@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/about' => 'homes#about'
   resources :companies, only: [:index, :show]
-  resources :products
+  resources :products do
+    resources :estimates, only: [:new, :create]
+  end
+  resources :estimates, only: [:index, :show, :update, :destroy]
 
 end

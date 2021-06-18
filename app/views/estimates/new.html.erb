@@ -1,0 +1,17 @@
+<h1>新規見積依頼ページ</h1>
+
+<% if @estimate.errors.any? %>
+  <% @estimate.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<%= form_with model: [@product, @estimate], local: true do |f| %>
+  <div>
+    <%= f.label :description, "施工概要" %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.submit "送信" %>
+  </div>
+<% end %>
