@@ -67,6 +67,7 @@ gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'cocoon'
 
 gem 'dotenv-rails'
 group :production do

@@ -44,7 +44,8 @@ class ProductsController < ApplicationController
       sizes_attributes: [
         :id,
         :product_id,
-        :name
+        :name,
+        :_destroy
         ],
       product_images_images: []
       )

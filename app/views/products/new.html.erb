@@ -23,9 +23,9 @@
     <%= f.attachment_field :product_images_images, multiple: true %>
   </div>
   <div>
-    <%= f.fields_for :sizes do |s| %>
-      <%= s.label :name, "呼び寸法 / 品名" %>
-      <%= s.text_field :name %>
+    <%= f.fields_for :sizes do |builder| %>
+      <%= render 'size_fields', f: builder %>
+      <%= link_to_add_association "寸法を追加", f, :sizes %>
     <% end %>
   </div>
   <div>
