@@ -20,9 +20,15 @@ class EstimatesController < ApplicationController
   end
 
   def index
+    if user_signed_in?
+      @estimates = current_user.estimates.all
+    elsif company_signed_in?
+      @estimates = current_company.estimates.all
+    end
   end
 
   def show
+    @estimate = Estimate.find(params[:id])
   end
 
   def update
