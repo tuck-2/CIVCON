@@ -30,6 +30,10 @@
     <% end %>
   </div>
   <div>
+    <%= f.label :drawing, "図面データ" %>
+    <%= f.file_field :drawing %>
+  </div>
+  <div>
     <%= f.submit "登録" %>
   </div>
 <% end %>

@@ -6,4 +6,5 @@ class Product < ApplicationRecord
   has_many :sizes, dependent: :destroy
   accepts_nested_attributes_for :sizes, allow_destroy: true
   accepts_attachments_for :product_images, attachment: :image
+  mount_uploader :drawing, DrawingUploader
 end

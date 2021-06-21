@@ -68,6 +68,7 @@ gem 'refile-mini_magick'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'cocoon'
+gem 'carrierwave', '~> 2.0'
 
 gem 'dotenv-rails'
 group :production do

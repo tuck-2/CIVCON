@@ -34,6 +34,11 @@ class ProductsController < ApplicationController
   def destroy
   end
 
+  def download
+    @product = Product.find(params[:id])
+    send_data(@product.drawing.read, filename: @product.drawing_identifier)
+  end
+
   private
 
   def product_params
@@ -41,6 +46,7 @@ class ProductsController < ApplicationController
       :type_id,
       :name,
       :description,
+      :drawing,
       sizes_attributes: [
         :id,
         :product_id,
