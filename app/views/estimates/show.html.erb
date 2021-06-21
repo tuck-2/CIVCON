@@ -15,6 +15,21 @@
     <td><%= @estimate.created_at.strftime('%Y/%m/%d') %></td>
   </tr>
   <tr>
+    <th>ステータス</th>
+    <% if user_signed_in? %>
+      <td>
+        <%= @estimate.status %>
+      </td>
+    <% elsif company_signed_in? %>
+      <td>
+        <%= form_with model: @estimate, local: true do |f| %>
+          <%= f.select :status, [["受付中", "受付中"], ["送付済", "送付済"]] %>
+          <%= f.submit "更新" %>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+  <tr>
     <th>見積依頼概要</th>
     <td><%= @estimate.description %></td>
   </tr>

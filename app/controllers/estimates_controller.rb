@@ -32,6 +32,13 @@ class EstimatesController < ApplicationController
   end
 
   def update
+    @estimate = Estimate.find(params[:id])
+    if @estimate.update(estimate_params)
+      flash[:notice] = "ステータスを更新しました"
+      redirect_to estimate_path(@estimate.id)
+    else
+      render :show
+    end
   end
 
   def destroy
