@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/about' => 'homes#about'
   get '/products/download/:id' => 'products#download', as: "download_drawing"
-  resources :companies, only: [:index, :show]
+  resources :companies, only: [:index, :show, :edit, :update]
   resources :products do
     resources :estimates, only: [:new, :create]
   end

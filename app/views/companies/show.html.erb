@@ -24,3 +24,6 @@
     </tr>
   <% end %>
 </table>
+<% if @company == current_company %>
+  <%= link_to "編集", edit_company_path(@company.id) %>
+<% end %>

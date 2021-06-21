@@ -1,0 +1,32 @@
+<h1>企業情報編集</h1>
+
+<% if @company.errors.any? %>
+  <%= @company.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<%= form_with model: @company, local: true do |f| %>
+  <%= f.label :name, "企業名" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :name_kana, "企業名（カナ）" %>
+  <%= f.text_field :name_kana %>
+
+  <%= f.label :postal_code, "郵便番号" %>
+  <%= f.text_field :postal_code %>
+
+  <%= f.label :address, "所在地" %>
+  <%= f.text_field :address %>
+
+  <%= f.label :phone_num, "電話番号" %>
+  <%= f.text_field :phone_num %>
+
+  <%= f.label :fax_num, "FAX" %>
+  <%= f.text_field :fax_num %>
+
+  <%= f.label :description, "企業概要" %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "更新" %>
+<% end %>
