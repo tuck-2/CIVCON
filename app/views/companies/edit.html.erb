@@ -1,32 +1,48 @@
-<h1>企業情報編集</h1>
+<div id="pagetitle" class="edit-company-title">
+  <h1>
+    Edit Company Info
+    <span>企業情報編集</span>
+  </h1>
+</div>
 
-<% if @company.errors.any? %>
-  <%= @company.errors.full_messages.each do |message| %>
-    <%= message %>
+<div class="container">
+  <% if @company.errors.any? %>
+    <%= @company.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= form_with model: @company, local: true do |f| %>
-  <%= f.label :name, "企業名" %>
-  <%= f.text_field :name %>
-
-  <%= f.label :name_kana, "企業名（カナ）" %>
-  <%= f.text_field :name_kana %>
-
-  <%= f.label :postal_code, "郵便番号" %>
-  <%= f.text_field :postal_code %>
-
-  <%= f.label :address, "所在地" %>
-  <%= f.text_field :address %>
-
-  <%= f.label :phone_num, "電話番号" %>
-  <%= f.text_field :phone_num %>
-
-  <%= f.label :fax_num, "FAX" %>
-  <%= f.text_field :fax_num %>
-
-  <%= f.label :description, "企業概要" %>
-  <%= f.text_area :description %>
-
-  <%= f.submit "更新" %>
-<% end %>
+  <%= form_with model: @company, local: true do |f| %>
+    <div class="form-group col-md-5">
+      <%= f.label :name, "企業名", class: "form-label" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-5">
+      <%= f.label :name_kana, "企業名(カナ)", class: "form-label" %>
+      <%= f.text_field :name_kana, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :postal_code, "郵便番号", class: "form-label" %>
+      <%= f.text_field :postal_code, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-5">
+      <%= f.label :address, "所在地", class: "form-label" %>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :phone_num, "電話番号", class: "form-label" %>
+      <%= f.text_field :phone_num, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :fax_num, "FAX", class: "form-label" %>
+      <%= f.text_field :fax_num, class: "form-control" %>
+    </div>
+    <div class="form-group col-auto">
+      <%= f.label :description, "企業概要", class: "form-label" %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+    <div class="form-group col-auto">
+      <%= f.submit "更新", class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>

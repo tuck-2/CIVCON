@@ -5,6 +5,8 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @products = @company.products
+    @types = Type.all
   end
 
   def edit

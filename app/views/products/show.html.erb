@@ -1,16 +1,36 @@
-<h1>製品詳細ページ</h1>
-
-<%= @product.name %>
-<% @product.product_images.each do |image| %>
-  <%= attachment_image_tag image, :image, :fill, 300, 300, format: 'jpg' %>
-<% end %>
-<%= @product.type.name %>
-<%= @product.company.name %>
-<%= @product.description %>
-<% @sizes.each do |size| %>
-  <%= size.name %>
-<% end %>
-<%= link_to "図面ダウンロード", download_drawing_path(@product.id) %>
-<% if user_signed_in? %>
-  <%= link_to "見積依頼を作成", new_product_estimate_path(@product.id) %>
-<% end %>
+<div id="product-show" class="container">
+  <h1 class="main-title"><%= @product.name %></h1>
+  <div class="product-image-container">
+    <div id="slider">
+      <% @product.product_images.each do |image| %>
+        <%= attachment_image_tag image, :image, format: 'jpeg', class: "product-image" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="content-container">
+    <h2 class="content-title">製品概要</h2>
+    <%= @product.description %>
+  </div>
+  <div class="content-container">
+    <h2 class="content-title">製品寸法</h2>
+    <% @sizes.each do |size| %>
+      <%= size.name %>
+    <% end %>
+  </div>
+  <div class="content-container">
+    <h2 class="content-title">Download</h2>
+    <%= link_to "図面ダウンロード", download_drawing_path(@product.id) %>
+  </div>
+  <% if @product.company == current_company %>
+    <div class="content-container">
+      <h2 class="content-title">Edit</h2>
+      <%= link_to "編集", edit_product_path(@product.id), class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+  <% if user_signed_in? %>
+    <div class="content-container">
+      <h2 class="content-title">見積依頼</h2>
+      <%= link_to "見積依頼を作成", new_product_estimate_path(@product.id) %>
+    </div>
+  <% end %>
+</div>

@@ -1,25 +1,34 @@
-<h1>メーカー一覧</h1>
+<div id="pagetitle" class="companies-title">
+  <h1>
+    Companies
+    <span>メーカー一覧</span>
+  </h1>
+</div>
 
-<table>
-  <thead>
-    <th>企業名</th>
-    <th>所在地</th>
-    <th>電話番号</th>
-  </thead>
-  <tbody>
-    <% @companies.each do |company| %>
+<div class="container">
+  <table class="table">
+    <thead class="thead-light">
       <tr>
-        <td>
-          <%= link_to company.name, company_path(company.id) %>
-        </td>
-        <td>
-          <%= "〒#{company.postal_code}" %><br>
-          <%= company.address %>
-        </td>
-        <td>
-          <%= company.phone_num %>
-        </td>
+        <th>企業名</th>
+        <th>所在地</th>
+        <th>電話番号</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @companies.each do |company| %>
+        <tr>
+          <td>
+            <%= link_to company.name, company_path(company.id) %>
+          </td>
+          <td>
+            <%= "〒#{company.postal_code}" %><br>
+            <%= company.address %>
+          </td>
+          <td>
+            <%= company.phone_num %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

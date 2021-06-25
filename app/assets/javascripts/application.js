@@ -11,12 +11,28 @@
 // about supported directives.
 //
 
-//= require jquery3
+//= require jquery
 //= require popper
 //= require bootstrap-sprockets
 //= require cocoon
 
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+
 //= require_tree .
+
+$(function() {
+  //画像スライダー
+  $('#slider').slick({
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+  });
+  // 製品詳細ページ
+  $('#type-menu .type-content').hide();
+  $("#type-menu a").click(function() {
+    $('#type-menu .type-content').hide();
+    $($(this).attr("href")).show();
+  	});
+});
+

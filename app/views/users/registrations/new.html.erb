@@ -1,74 +1,81 @@
-<h2>Sign up</h2>
+<div id="pagetitle" class="signup-title">
+  <h1>
+    SignUp
+    <span>会員登録</span>
+  </h1>
+</div>
 
-<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+<div class="container">
+  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name, "氏名" %><br>
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+    <div class="field form-group col-md-4">
+      <%= f.label :name, "氏名", class: "form-label" %>
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name_kana, "氏名（カナ）" %><br>
-    <%= f.text_field :name_kana %>
-  </div>
+    <div class="field form-group col-md-4">
+      <%= f.label :name_kana, "氏名(カナ)", class: "form-label" %>
+      <%= f.text_field :name_kana, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :group, "会社名 / 団体名" %><br>
-    <%= f.text_field :group %>
-  </div>
+    <div class="field form-group col-md-5">
+      <%= f.label :group, "会社名 / 団体名", class: "form-label" %>
+      <%= f.text_field :group, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :group_kana, "会社名 / 団体名（カナ）" %><br>
-    <%= f.text_field :group_kana %>
-  </div>
+    <div class="field form-group col-md-5">
+      <%= f.label :group_kana, "会社名 / 団体名(カナ)", class: "form-label" %>
+      <%= f.text_field :group_kana, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :department, "部署 / 課" %><br>
-    <%= f.text_field :department %>
-  </div>
+    <div class="field form-group col-md-5">
+      <%= f.label :department, "部署 / 課", class: "form-label" %>
+      <%= f.text_field :department, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :phone_num, "電話番号" %><br>
-    <%= f.text_field :phone_num %>
-  </div>
+    <div class="field form-group col-md-4">
+      <%= f.label :phone_num, "電話番号", class: "form-label" %>
+      <%= f.text_field :phone_num, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :fax_num, "FAX番号" %><br>
-    <%= f.text_field :fax_num %>
-  </div>
+    <div class="field form-group col-md-4">
+      <%= f.label :fax_num, "FAX番号", class: "form-label" %>
+      <%= f.text_field :fax_num, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :postal_code, "郵便番号" %><br>
-    <%= f.text_field :postal_code %>
-  </div>
+    <div class="field form-group col-md-4">
+      <%= f.label :postal_code, "郵便番号", class: "form-label" %>
+      <%= f.text_field :postal_code, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :address, "住所" %><br>
-    <%= f.text_field :address %>
-  </div>
+    <div class="field form-group col-md-5">
+      <%= f.label :address, "住所", class: "form-label" %>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field form-group col-md-4">
+      <%= f.label :email, "メールアドレス", class: "form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field form-group col-md-4">
+      <%= f.label :password, "パスワード", class: "form-label" %>
+      <% if @minimum_password_length %>
+      <span>(<%= @minimum_password_length %>文字以上)</span>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field form-group col-md-4">
+      <%= f.label :password_confirmation, "パスワード(確認用)", class: "form-label" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="actions form-group col-auto">
+      <%= f.submit "Sign up", class: "btn btn-success" %>
+    </div>
+  <% end %>
 
-<%= render "users/shared/links" %>
+  <%= render "users/shared/links" %>
+</div>

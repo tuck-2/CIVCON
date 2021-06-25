@@ -1,17 +1,10 @@
-<h1>製品一覧</h1>
-<table>
-  <thead>
-    <tr>
-      <th>製品名</th>
-      <th>製品タイプ</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= link_to product.name, product_path(product.id) %></td>
-        <td><%= product.type.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="pagetitle" class="products-title">
+  <h1>
+    Products
+    <span>製品一覧</span>
+  </h1>
+</div>
+
+<div class="container">
+ <%= render 'products/list', products: @products, types: @types %>
+</div>

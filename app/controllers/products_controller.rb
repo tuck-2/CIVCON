@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @types = Type.all
   end
 
   def show
@@ -26,6 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update

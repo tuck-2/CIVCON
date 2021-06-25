@@ -1,29 +1,49 @@
-<h1>企業情報</h1>
+<div id="pagetitle" class="company-title">
+  <h1>
+    Company
+    <span>企業情報</span>
+  </h1>
+</div>
 
-<h2><%= @company.name %></h2>
-
-<h2>企業概要</h2>
-<p><%= @company.description %></p>
-
-<table>
-  <tr>
-    <th>会社所在地</th>
-    <td>
-      <%= "〒#{@company.postal_code}" %><br>
-      <%= @company.address %>
-    </td>
-  </tr>
-  <tr>
-    <th>電話番号</th>
-    <td><%= @company.phone_num %></td>
-  </tr>
-  <% if @company.fax_num != nil %>
-    <tr>
-      <th>FAX</th>
-      <td><%= @company.fax_num %></td>
-    </tr>
-  <% end %>
-</table>
-<% if @company == current_company %>
-  <%= link_to "編集", edit_company_path(@company.id) %>
-<% end %>
+<div class="container">
+  <h2 class="main-title"><%= @company.name %></h2>
+  <div class="content-container">
+    <h3 class="content-title">企業概要</h3>
+    <p><%= @company.description %></p>
+  </div>
+  <div class="content-container">
+    <h3 class="content-title">企業情報</h3>
+    <table class="table align-middle">
+      <tr>
+        <th>会社所在地</th>
+        <td>
+          <%= "〒#{@company.postal_code}" %><br>
+          <%= @company.address %>
+        </td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><%= @company.phone_num %></td>
+      </tr>
+      <% if @company.fax_num != nil %>
+        <tr>
+          <th>FAX</th>
+          <td><%= @company.fax_num %></td>
+        </tr>
+      <% end %>
+      <% if @company == current_company %>
+        <tr>
+          <td colspan="2">
+            <%= link_to "編集", edit_company_path(@company.id), class: "btn btn-secondary" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="content-container">
+    <h3 class="content-title">製品一覧</h3>
+    <div class="container">
+      <%= render 'products/list', products: @products, types: @types %>
+    </div>
+  </div>
+</div>

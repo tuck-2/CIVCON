@@ -7,58 +7,66 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <%= link_to "CIVCON", root_path, class: "navbar-brand" %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <%= link_to "About", about_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "製品一覧", products_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "メーカー一覧", companies_path, class: "nav-link" %>
-            </li>
-            <% if user_signed_in? %>
+        <div class="container">
+          <%= link_to "CIVCON", root_path, class: "navbar-brand" %>
+          <% if user_signed_in? %>
+            <%= "ようこそ#{current_user.name}さん" %>
+          <% elsif company_signed_in? %>
+            <%= "#{current_company.name}としてログインしています" %>
+          <% end %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <%= "#{current_user.name} としてログインしています" %>
+                <%= link_to "About", about_path, class: "nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to "見積依頼一覧", estimates_path, class: "nav-link" %>
+                <%= link_to "製品一覧", products_path, class: "nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                <%= link_to "メーカー一覧", companies_path, class: "nav-link" %>
               </li>
-            <% elsif company_signed_in? %>
-              <li class="nav-item">
-                <%= "#{current_company.name} としてログインしています" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "ログアウト", destroy_company_session_path, method: :delete, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "製品登録", new_product_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "見積依頼一覧", estimates_path, class: "nav-link" %>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
-              </li>
-            <% end %>
-          </ul>
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "見積依頼一覧", estimates_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                </li>
+              <% elsif company_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "見積依頼一覧", estimates_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "製品登録", new_product_path, class: "nav-link" %>
+                </li>
+                <li class="nav-iten">
+                  <%= link_to "自社ページ", company_path(current_company.id), class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_company_session_path, method: :delete, class: "nav-link" %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
@@ -68,5 +76,11 @@
     <% end %>
 
     <%= yield %>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">© CIVCON</p>
+      </div>
+    </footer>
   </body>
 </html>

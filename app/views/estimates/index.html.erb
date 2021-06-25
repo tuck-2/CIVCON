@@ -1,30 +1,34 @@
-<h1>見積依頼履歴一覧</h1>
+<div id="pagetitle" class="estimates-title">
+  <h1>見積依頼履歴一覧</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>製品名</th>
-      <% if user_signed_in? %>
-        <th>メーカー名</th>
-      <% elsif company_signed_in? %>
-        <th>依頼者名</th>
-      <% end %>
-      <th>ステータス</th>
-      <th>依頼日</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @estimates.each do |estimate| %>
+<div class="container">
+  <table class="table">
+    <thead class="thead-light">
       <tr>
-        <td><%= link_to estimate.product.name, estimate_path(estimate.id) %></td>
+        <th>製品名</th>
         <% if user_signed_in? %>
-          <td><%= estimate.company.name %></td>
+          <th>メーカー名</th>
         <% elsif company_signed_in? %>
-          <td><%= estimate.user.name %></td>
+          <th>依頼者名</th>
         <% end %>
-        <td><%= estimate.status %></td>
-        <td><%= estimate.created_at.strftime('%Y/%m/%d') %></td>
+        <th>ステータス</th>
+        <th>依頼日</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @estimates.each do |estimate| %>
+        <tr>
+          <td><%= link_to estimate.product.name, estimate_path(estimate.id) %></td>
+          <% if user_signed_in? %>
+            <td><%= estimate.company.name %></td>
+          <% elsif company_signed_in? %>
+            <td><%= estimate.user.name %></td>
+          <% end %>
+          <td><%= estimate.status %></td>
+          <td><%= estimate.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

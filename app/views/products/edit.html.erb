@@ -1,0 +1,53 @@
+<div id="pagetitle" class="edit-product-title">
+  <h1>
+    Edit Product Info
+    <span>製品情報編集</span>
+  </h1>
+</div>
+
+<div class="container">
+  <% if @product.errors.any? %>
+    <% @products.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
+  <%= form_with model: @product, local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :name, "製品名", class: "form-label" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :type_id, "製品タイプ", class: "form-label" %>
+      <%= f.collection_select :type_id, Type.all, :id, :name, {include_blank: "選択してください"}, {class: "form-control"} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, "製品概要", class: "form-label" %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :product_images_images, "製品画像", class: "form-label" %>
+      <%= f.attachment_field :product_images_images, multiple: true, class: "form-control-file" %>
+    </div>
+    <div class="form-group">
+      <%= f.fields_for :sizes do |builder| %>
+        <%= f.label :name, "呼び寸法 / 品名", class: "form-label" %>
+        <%= render 'size_fields', f: builder %>
+        <div id="detail-association-insertion-point"></div>
+        <%= link_to_add_association "寸法を追加", f, :sizes, class: "btn btn-primary",
+          data: {
+            association_insertion_node: '#detail-association-insertion-point',
+            association_insertion_method: 'append'
+          }
+        %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label :drawing, "図面データ", class: "form-label" %>
+      <%= f.file_field :drawing, class: "form-control-file" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "更新", class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,21 @@
+<ul id="type-menu">
+  <% types.each_with_index do |type, i| %>
+    <li><%= link_to type.name, "#type#{i}" %></li>
+    <div id="<%= "type#{i}" %>" class="type-content">
+      <% if products.where(type_id: type.id).any? %>
+        <% products.where(type_id: type.id).each do |product| %>
+          <div class="product-container">
+            <%= link_to product_path(product.id) do %>
+              <%= attachment_image_tag product.product_images.first, :image, format: 'jpeg', fallback: "no_img.jpeg", class: "container-image" %>
+              <span class="container-title">
+                <%= product.name %>
+              </span>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <p>製品がありません</p>
+      <% end %>
+    </div>
+  <% end %>
+</ul>
