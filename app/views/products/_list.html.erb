@@ -1,3 +1,21 @@
+<div id="search-container">
+  <%= form_with url: search_products_path, method: :get, local: true do |f| %>
+    <div class="form-row align-items-center">
+      <div class="title">
+        <p>
+          Search
+          <span>製品検索</span>
+        </p>
+      </div>
+      <div class="col-md-6 ml-auto">
+       <%= f.text_field :word, class: "form-control" %>
+      </div>
+      <div class="col-auto mr-auto">
+       <%= f.submit "検索", class: "btn btn-secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
 <ul id="type-menu">
   <% types.each_with_index do |type, i| %>
     <li><%= link_to type.name, "#type#{i}" %></li>

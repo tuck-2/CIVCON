@@ -41,6 +41,14 @@ class ProductsController < ApplicationController
     send_data(@product.drawing.read, filename: @product.drawing_identifier)
   end
 
+  def search
+    if params[:word].present?
+      @products = Product.where('name LIKE ?', "%#{params[:word]}%")
+    else
+      @products = Product.none
+    end
+  end
+
   private
 
   def product_params

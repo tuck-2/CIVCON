@@ -75,6 +75,7 @@
   font-size: 22px;
   background-color: #4682b4;
   display: table;
+  margin-bottom: 26px;
   padding: 0 10px;
   line-height: 2.0;
   border-radius: 0 0 6px 6px;
@@ -130,6 +131,33 @@
   background-image: url('products_img.jpg');
   background-size: cover;
   background-position: 0% 40%;
+ }
+ //検索欄
+ #search-container {
+  padding: 10px;
+  background-color: #e6e6fa;
+ }
+ #search-container .title {
+  width: 250px;
+  height: 180px;
+  margin: -20px 0 0 -20px;
+  padding: 20px 0 0 30px;
+  background: #063b76;
+  float: left;
+ }
+ #search-container .title p {
+  font-family: 'Josefin Sans' , sans-serif;
+  font-size: 30px;
+  letter-spacing: 6px;
+  color: #fff;
+ }
+ #search-container .title p span {
+  margin: -10px 0 0 0;
+  font-family: UDKakugo_SmallPr6-DB;
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: normal;
+  display: block;
  }
  // 製品一覧リスト
  #type-menu li {

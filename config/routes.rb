@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/products/download/:id' => 'products#download', as: "download_drawing"
   resources :companies, only: [:index, :show, :edit, :update]
   resources :products do
+    get :search, on: :collection
     resources :estimates, only: [:new, :create]
   end
   resources :estimates, only: [:index, :show, :update, :destroy]
