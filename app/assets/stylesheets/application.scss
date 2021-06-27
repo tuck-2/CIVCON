@@ -82,53 +82,53 @@
  }
  //会員登録ページ
  .signup-title {
-  background-image: url('signup_img.jpeg');
+  background-image: image-url('signup_img.jpeg');
   background-size: cover;
   background-position: center;
  }
  //会員Loginページ
  .login-title {
-  background-image: url('login_img.jpeg');
+  background-image: image-url('login_img.jpeg');
   background-size: cover;
   background-position: 0% 70%;
  }
  //Topページ
  .top-title {
-  background-image: url('top_img.jpeg');
+  background-image: image-url('top_img.jpeg');
   background-size: cover;
   background-position: bottom;
  }
  //Aboutページ
  .about-title {
-  background-image: url('about_img.jpeg');
+  background-image: image-url('about_img.jpeg');
   background-size: cover;
  }
  //メーカー一覧ページ
  .companies-title {
-  background-image: url('companies_img.jpeg');
+  background-image: image-url('companies_img.jpeg');
   background-size: cover;
  }
  //メーカー詳細ページ
  .company-title {
-  background-image: url('company_img.jpeg');
+  background-image: image-url('company_img.jpeg');
   background-size: cover;
   background-position: 0% 40%;
  }
  //メーカー情報編集ページ
  .edit-company-title {
-  background-image: url('company_img.jpeg');
+  background-image: image-url('company_img.jpeg');
   background-size: cover;
   background-position: 0% 40%;
  }
  //製品登録ページ
  .new-product-title {
-  background-image: url('new_product_img.jpeg');
+  background-image: image-url('new_product_img.jpeg');
   background-size: cover;
   background-position: center;
  }
  //製品一覧ページ
  .products-title {
-  background-image: url('products_img.jpg');
+  background-image: image-url('products_img.jpg');
   background-size: cover;
   background-position: 0% 40%;
  }
@@ -215,19 +215,19 @@
  }
  //製品編集ページ
  .edit-product-title {
-  background-image: url('new_product_img.jpeg');
+  background-image: image-url('new_product_img.jpeg');
   background-size: cover;
   background-position: center;
  }
  //見積依頼履歴一覧
  .estimates-title {
-  background-image: url('estimate_img.jpeg');
+  background-image: image-url('estimate_img.jpeg');
   background-size: cover;
   background-position: center;
  }
  //見積依頼詳細ページ
  .estimate-title {
-  background-image: url('estimate_img.jpeg');
+  background-image: image-url('estimate_img.jpeg');
   background-size: cover;
   background-position: center;
  }
