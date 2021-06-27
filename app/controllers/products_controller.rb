@@ -31,9 +31,17 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      flash[:notice] = "製品情報を更新しました"
+      redirect_to product_path(@product.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    
   end
 
   def download
