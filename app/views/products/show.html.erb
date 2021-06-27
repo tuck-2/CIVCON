@@ -23,8 +23,9 @@
   </div>
   <% if @product.company == current_company %>
     <div class="content-container">
-      <h2 class="content-title">Edit</h2>
+      <h2 class="content-title">管理者機能</h2>
       <%= link_to "編集", edit_product_path(@product.id), class: "btn btn-secondary" %>
+      <%= link_to "削除", product_path(@product.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger" %>
     </div>
   <% end %>
   <% if user_signed_in? %>

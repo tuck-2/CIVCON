@@ -41,7 +41,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    
+    @product = Product.find(params[:id])
+    @product.destroy
+    flash[:notice] = "製品を削除しました"
+    redirect_to company_path(current_company.id)
   end
 
   def download
