@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_company!, only: [:new, :create, :edit, :update, :destroy]
+
   def new
     @product = Product.new
     @product.sizes.build

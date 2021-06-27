@@ -17,6 +17,6 @@ Rails.application.routes.draw do
     get :search, on: :collection
     resources :estimates, only: [:new, :create]
   end
-  resources :estimates, only: [:index, :show, :update, :destroy]
+  resources :estimates, only: [:index, :show, :update]
 
 end

@@ -1,4 +1,8 @@
 class EstimatesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_company!, only: [:update]
+  before_action :authenticate_any!, only: [:index, :show]
+
   def new
     @estimate = Estimate.new
     @product = Product.find(params[:product_id])
@@ -16,14 +20,13 @@ class EstimatesController < ApplicationController
     else
       render :new
     end
-
   end
 
   def index
     if user_signed_in?
-      @estimates = current_user.estimates.all
+      @estimates = current_user.estimates
     elsif company_signed_in?
-      @estimates = current_company.estimates.all
+      @estimates = current_company.estimates
     end
   end
 
@@ -39,9 +42,6 @@ class EstimatesController < ApplicationController
     else
       render :show
     end
-  end
-
-  def destroy
   end
 
   private
