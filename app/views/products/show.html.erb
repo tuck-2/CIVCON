@@ -13,9 +13,24 @@
   </div>
   <div class="content-container">
     <h2 class="content-title">製品寸法</h2>
-    <% @sizes.each do |size| %>
-      <%= size.name %>
-    <% end %>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>
+            呼び寸法 / 品名
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @sizes.each do |size| %>
+          <tr>
+            <td>
+              <%= size.name %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
   <div class="content-container">
     <h2 class="content-title">Download</h2>
