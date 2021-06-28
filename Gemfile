@@ -74,7 +74,3 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
-
-group :development do
-  gem 'listen'
-end
